@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<project name="meguni" default="usage">
+<project name="meguni" default="usage" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
 
   <target name="usage" description="How to see all the targets">
     <echo>USAGE: ant -projecthelp</echo>
@@ -95,6 +95,18 @@
 
     <jar destfile="build/lib/wyona-org-meguni-${meguni.version}-r${svn.revision}.jar" basedir="${classes.dir}">
     </jar>
+  </target>
+
+  <target name="install-jar" description="Place jar into local maven repository" depends="init, jar">
+    <copy file="pom.xml" todir="build/lib"/>
+    <replace file="build/lib/pom.xml" value="${meguni.version}-r${svn.revision}">
+      <replacetoken>@VERSION@</replacetoken>
+    </replace>
+    <artifact:pom id="maven.project.core" file="build/lib/pom.xml"/>
+
+    <artifact:install file="build/lib/wyona-org-meguni-${meguni.version}-r${svn.revision}.jar">
+      <pom refid="maven.project.core"/>
+    </artifact:install>
   </target>
 
 </project>
