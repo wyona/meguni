@@ -84,11 +84,13 @@ public class GoogleParser extends Parser {
                         //String titleWithLink = searchEnd(in, position, "<br>");
                         position = position + titleWithLink.length();
                         if (titleWithLink != null) {
-                            String link = titleWithLink.substring(titleWithLink.indexOf("<a") + 8); // Beginning of Link
-                            int endOfLink = link.indexOf(">");
-                            String title = link.substring(endOfLink + 1, link.indexOf("</a>"));
-                            link = link.substring(0, endOfLink); // End of Link
+                            log.debug("Title and Link: " + titleWithLink);
+                            String link = titleWithLink.substring(titleWithLink.indexOf("<a") + 9); // Beginning of Link
+                            String title = link.substring(link.indexOf(">") + 1, link.indexOf("</a>"));
                             log.debug("Title: " + title);
+
+                            log.debug("Not Link yet: " + link);
+                            link = link.substring(0, link.indexOf("\"")); // End of Link
                             log.debug("Link: " + link);
 
                             // TODO: Something is wrong with retrieving the excerpt!
