@@ -17,14 +17,17 @@
       </fileset>
     </path>
 
-    <property name="classes.dir" value="build/webapp/WEB-INF/classes"/>
+    <property name="classes.dir" value="build/classes"/>
   </target>
 
-  <target name="install" depends="init, compile, site" description="Install webapp">
+  <target name="install" depends="init, jar, site" description="Install webapp">
     <copy todir="build/webapp">
       <fileset dir="src/webapp"/>
     </copy>
 
+    <copy todir="build/webapp/WEB-INF/lib">
+      <fileset dir="build/lib"/>
+    </copy>
 
     <available file="${tomcat.webapps.dir}" type="dir" property="webapps.dir.exists"/>
     <fail unless="webapps.dir.exists" message="No such directory: ${tomcat.webapps.dir}. Please check the parameter tomcat.webapps.dir within the file local.build.properties"/>
@@ -58,8 +61,8 @@
   </target>
 
   <target name="clean" depends="init" description="Clean Build">
-    <echo>Remove Java classes</echo>
-    <delete dir="${classes.dir}"/>
+    <echo>Remove build dir</echo>
+    <delete dir="build"/>
   </target>
 
   <target name="site" depends="init" description="Generate all pages of site">
@@ -85,6 +88,13 @@
 
   <target name="transform">
     <xslt in="src/site/${doc}.xhtml" out="build/webapp/${doc}.html" style="src/xslt/global.xsl"/>
+  </target>
+
+  <target name="jar" description="Create a jar file" depends="init, compile">
+    <mkdir dir="build/lib"/>
+
+    <jar destfile="build/lib/wyona-org-meguni-${meguni.version}-r${svn.revision}.jar" basedir="${classes.dir}">
+    </jar>
   </target>
 
 </project>
