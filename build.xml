@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<project name="meguni" default="usage">
+
+  <target name="usage" description="How to see all the targets">
+    <echo>USAGE: ant -projecthelp</echo>
+    <echo>NOTE: Read the README.txt</echo>
+  </target>
+
+  <target name="init" description="initialization">
+    <property file="local.build.properties"/>
+    <property file="build.properties"/>
+
+    <path id="classpath">
+      <fileset dir="lib">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+
+    <property name="classes.dir" value="build/webapp/WEB-INF/classes"/>
+  </target>
+
+  <target name="install" depends="init, compile, site" description="Install webapp">
+    <copy todir="build/webapp">
+      <fileset dir="src/webapp"/>
+    </copy>
+
+
+    <available file="${tomcat.webapps.dir}" type="dir" property="webapps.dir.exists"/>
+    <fail unless="webapps.dir.exists" message="No such directory: ${tomcat.webapps.dir}. Please check the parameter tomcat.webapps.dir within the file local.build.properties"/>
+
+    <echo>Copy webapp into servlet container: (${tomcat.webapps.dir}):</echo>
+    <copy todir="${tomcat.webapps.dir}/${context.prefix}">
+      <fileset dir="build/webapp"/>
+    </copy>
+
+    <echo>Copy and patch log4j.properties</echo>
+    <mkdir dir="build/webapp/WEB-INF/lib"/>
+    <copy file="lib/log4j.properties" todir="build/webapp/WEB-INF/classes"/>
+    <replace file="build/webapp/WEB-INF/classes/log4j.properties" value="${tomcat.webapps.dir}/${context.prefix}/WEB-INF/logs">
+        <replacetoken>@LOG4J_PATH@</replacetoken>
+    </replace>
+    <copy file="build/webapp/WEB-INF/classes/log4j.properties" todir="${tomcat.webapps.dir}/${context.prefix}/WEB-INF/classes"/>
+    <mkdir dir="${tomcat.webapps.dir}/${context.prefix}/WEB-INF/logs"/>
+  </target>
+
+  <target name="compile" depends="init" description="Compile">
+    <echo>Compile Java classes</echo>
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="src/java" destdir="${classes.dir}"
+           classpathref="classpath"
+           debug="true"
+    />
+
+    <echo>Copy libraries</echo>
+    <mkdir dir="build/webapp/WEB-INF/lib"/>
+    <copy file="lib/log4j-1.2.8.jar" todir="build/webapp/WEB-INF/lib"/>
+  </target>
+
+  <target name="clean" depends="init" description="Clean Build">
+    <echo>Remove Java classes</echo>
+    <delete dir="${classes.dir}"/>
+  </target>
+
+  <target name="site" depends="init" description="Generate all pages of site">
+    <antcall target="transform">
+      <param name="doc" value="index"/>
+    </antcall>
+    <antcall target="transform">
+      <param name="doc" value="about"/>
+    </antcall>
+    <antcall target="transform">
+      <param name="doc" value="community"/>
+    </antcall>
+    <antcall target="transform">
+      <param name="doc" value="acknowledgements"/>
+    </antcall>
+    <antcall target="transform">
+      <param name="doc" value="login"/>
+    </antcall>
+    <antcall target="transform">
+      <param name="doc" value="remember"/>
+    </antcall>
+  </target>
+
+  <target name="transform">
+    <xslt in="src/site/${doc}.xhtml" out="build/webapp/${doc}.html" style="src/xslt/global.xsl"/>
+  </target>
+
+</project>

@@ -1,0 +1,175 @@
+/*
+ * Copyright 2005 Wyona, http://www.wyona.com
+ */
+
+table#head {
+  position: fixed;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 100%;
+  z-index: 1;
+
+  background: #e5ecf9;
+
+  /*border-bottom-style: ridge;*/
+  border-bottom-style: groove;
+  border-bottom-width: 1px;
+  border-bottom-color: black;
+
+/*
+  border-style: none;
+  border-width: 0px;
+  border-color: pink;
+*/
+}
+
+td#small-logo {
+  position: relative;
+  width: 220px;
+
+  font-weight: bold;
+  font-size: 48px;
+  font-family: verdana, sans-serif;
+
+  background: #e5ecf9;
+
+  border-style: none;
+  border-width: 0px;
+  border-color: green;
+}
+
+td#small-logo a {
+  text-decoration: none;
+  color: #000000;
+}
+
+td#search-form {
+  position: relative;
+
+  background: #e5ecf9;
+  border-style: none;
+  border-width: 0px;
+  border-color: red;
+}
+
+div#results {
+  position: absolute;
+  padding-top: 80px;
+  padding-left: 10px;
+  width: 750px;
+
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: pink;
+}
+
+div.item {
+  padding-top: 20px;
+  padding-left: 50px;
+  /*padding: 50px 50px 50px 50px;*/
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+span.item-number {
+  //font-weight: bold;
+  font-size: 12px;
+  font-family: verdana, sans-serif;
+  color: grey;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+span.item-source {
+  font-weight: italic;
+  font-size: 12px;
+  font-family: verdana, sans-serif;
+  color: grey;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+dv.item-title a {
+  text-decoration: none;
+  color: #333333;
+  /*color: #0066cc;*/
+}
+
+dv.item-title a:hover {
+  color: red;
+  /*color: #0066cc;*/
+}
+
+dv.item-title a:visited {
+  color: pink;
+  /*color: #0066cc;*/
+}
+
+dv.item-title a:visited:hover {
+  color: green;
+  /*color: #0066cc;*/
+}
+
+div.item-title {
+  font-weight: bold;
+  font-size: 14px;
+  font-family: verdana, sans-serif;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+div.item-excerpt {
+  font-size: 14px;
+  font-family: verdana, sans-serif;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+span.item-url-remember {
+  font-size: 12px;
+  font-family: verdana, sans-serif;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: grey;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}
+
+span.item-url-url {
+  font-size: 12px;
+  font-family: verdana, sans-serif;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: green;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}

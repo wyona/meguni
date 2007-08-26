@@ -1,0 +1,8 @@
+
+ - Add XUL version of the search input field
+ - Implement the remember functionality, whereas two indecies are being created:
+    1) Global for all users
+    2) Local for the individual (or what about one index with the users attached!)
+
+ BUGS
+  - Globus generates NullPointerException for the Google parser

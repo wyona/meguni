@@ -1,0 +1,26 @@
+/*
+ * Copyright 2005 Wyona, http://www.wyona.com
+ */
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#logo a {
+  text-decoration: none;
+  color: #000000;
+}
+
+#logo {
+  font-weight: bold;
+  font-size: 48px;
+  font-family: verdana, sans-serif;
+  /*padding: 50px 50px 50px 50px;*/
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border-style: none;
+  border-width: 0px;
+  border-color: black;
+}

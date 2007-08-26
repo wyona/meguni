@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:nutch="http://www.nutch.org/opensearchrss/1.0/" xmlns:os="http://a9.com/-/spec/opensearchrss/1.0/" version="2.0">
+<channel>
+<title>Nutch: Michael</title>
+<description>Nutch search results for query: Michael</description>
+<link>http://127.0.0.1:8080/search.jsp?query=Michael&amp;start=0&amp;hitsPerPage=10&amp;hitsPerSite=2</link>
+<opensearch:totalResults xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">12</opensearch:totalResults>
+<opensearch:startIndex xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">0</opensearch:startIndex>
+<opensearch:itemsPerPage xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">10</opensearch:itemsPerPage>
+<item>
+<title>Michael Wechner</title>
+<description>&lt;b&gt;Michael&lt;/b&gt; Wechner &lt;b&gt;Michael&lt;/b&gt; Wechner Short Bio &lt;b&gt;Michael&lt;/b&gt; Wechner is co-founder of&lt;b&gt; ... &lt;/b&gt;</description>
+<link>http://www.wyona.com/people/michael-wechner/index.html</link>
+</item>
+<nutch:cache>http://127.0.0.1:8080/cached.jsp?idx=0&amp;id=12</nutch:cache>
+<nutch:explain>http://127.0.0.1:8080/explain.jsp?idx=0&amp;id=12&amp;query=Michael</nutch:explain>
+<nutch:moreFromSite>http://127.0.0.1:8080/search.jsp?query=site%3Awww.wyona.com+Michael&amp;hitsPerPage=10&amp;hitsPerSite=0</nutch:moreFromSite>
+<item>
+<title>OSCOM - Fremdbestaeubung (Cross Pollination) von OS CMS Projekten</title>
+<description>&lt;b&gt; ... &lt;/b&gt;Pollination) von OS CMS Projekten &lt;b&gt;Michael&lt;/b&gt; Wechner , 27.12.2004 &amp;nbsp; &amp;nbsp; OSCOM&lt;b&gt; ... &lt;/b&gt;</description>
+<link>http://www.wyona.com/people/michael-wechner/oscom.html</link>
+</item>
+<nutch:cache>http://127.0.0.1:8080/cached.jsp?idx=0&amp;id=20</nutch:cache>
+<nutch:explain>http://127.0.0.1:8080/explain.jsp?idx=0&amp;id=20&amp;query=Michael</nutch:explain>
+<nutch:moreFromSite>http://127.0.0.1:8080/search.jsp?query=site%3Awww.wyona.com+Michael&amp;hitsPerPage=10&amp;hitsPerSite=0</nutch:moreFromSite>
+</channel>
+</rss>
