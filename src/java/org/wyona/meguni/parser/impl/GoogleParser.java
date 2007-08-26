@@ -91,16 +91,20 @@ public class GoogleParser extends Parser {
                             log.debug("Title: " + title);
                             log.debug("Link: " + link);
 
+                            // TODO: Something is wrong with retrieving the excerpt!
+                            String excerpt = "Excerpt not implemented yet!";
+/*
 			    String excerpt = searchEnd(in, position, "color=#008000");
                             position = position + excerpt.length();
 
 			    try {
-                            excerpt = excerpt.substring(excerpt.indexOf("<font") + 14, excerpt.length() - 23);
-                            log.debug("Excerpt: " + excerpt);
+                                excerpt = excerpt.substring(excerpt.indexOf("<font") + 14, excerpt.length() - 23);
+                                log.debug("Excerpt: " + excerpt);
                             } catch (StringIndexOutOfBoundsException e) {
                                 excerpt = "No excerpt!";
                                 log.warn("No excerpt!");
                             }
+*/
 
                             resultSet.add(new Result(title, excerpt, new URL(link)));
                         } else {
