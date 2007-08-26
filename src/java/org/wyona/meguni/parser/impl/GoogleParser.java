@@ -61,7 +61,7 @@ public class GoogleParser extends Parser {
 
 
             //String marker = "<html>";
-            String marker = "<p class=g>";
+            String marker = "<div class=g>";
             //String marker = "<p class=\"g\">";
             int markerLength = marker.length();
             int c = -1;
