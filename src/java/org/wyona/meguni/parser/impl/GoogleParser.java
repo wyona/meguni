@@ -26,7 +26,7 @@ public class GoogleParser extends Parser {
      *
      */
     public ResultSet parse(String queryString) throws Exception {
-        log.warn("DEBUG: Query: " + queryString);
+        log.debug("Query: " + queryString);
 
         ResultSet resultSet = new ResultSet("Google", "http://www.google.com");
 
@@ -55,14 +55,21 @@ public class GoogleParser extends Parser {
         }
 
         try {
-            // To debug
-            //java.io.FileOutputStream out = new java.io.FileOutputStream(sampleFilename);
-
-
+            // To debug (remove all comments re out)
+/*
+            File debugFile = new File(getSamplesDir(), "google-out.txt");
+            log.debug("Debug file: " + debugFile.getAbsolutePath());
+            java.io.FileOutputStream out = new java.io.FileOutputStream(debugFile);
+*/
+ 
 
             //String marker = "<html>";
-            String marker = "<div class=g>";
+            String marker = "<li class=g>";
+            //String marker = "<div class=g>";
             //String marker = "<p class=\"g\">";
+
+            log.debug("Start parsing response ... (looking for markers matching: " + marker);
+
             int markerLength = marker.length();
             int c = -1;
             int numberOfCharsMatched = 0;
@@ -71,7 +78,7 @@ public class GoogleParser extends Parser {
             while ((c = in.read()) != -1) {
                 //out.write(c);
                 position++;
-                //log.error("Character: " + (char)c);
+                //log.debug("Character: " + (char)c);
                 if (c == marker.charAt(numberOfCharsMatched)) {
                     numberOfCharsMatched++;
                     sb.append((char)c);
@@ -116,7 +123,7 @@ public class GoogleParser extends Parser {
                     }
                 } else {
                     if (numberOfCharsMatched > 0) {
-                        //log.error("Sorry, no marker " + sb.toString()  + " at position: " + (position - numberOfCharsMatched));
+                        //log.debug("Sorry, no marker " + sb.toString()  + " at position: " + (position - numberOfCharsMatched));
                         numberOfCharsMatched = 0;
                         sb = new StringBuffer("");
                     }
