@@ -58,7 +58,7 @@ public class SearchServlet extends HttpServlet {
             if (searchEngines[i].equals("Google")) googleChecked = true;
             if (searchEngines[i].equals("MSN")) msnChecked = true;
             try {
-                resultSets[i] = getSearchResults(searchEngines[i], queryString.replaceAll(" ","+"));
+                resultSets[i] = getSearchResults(searchEngines[i], queryString);
             } catch (Exception e) {
                 log.error(e);
             }

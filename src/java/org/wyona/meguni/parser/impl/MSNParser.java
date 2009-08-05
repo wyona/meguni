@@ -27,14 +27,14 @@ public class MSNParser extends Parser {
      *
      */
     public ResultSet parse(String queryString) throws Exception {
-        log.debug("Parse: " + queryString);
+        log.debug("Query: " + queryString);
 
         ResultSet resultSet = new ResultSet("MSN", "http://search.msn.com");
 
         URL searchURL;
         try {
-            //searchURL = new URL("http://search.msn.com/results.aspx?q=" + queryString + "&FORM=QBHP");
-	    searchURL = new URL("http://search.msn.com/results.aspx?q=" + queryString + "&format=rss&FORM=ZZRE");
+            //searchURL = new URL("http://search.msn.com/results.aspx?q=" + queryString.replaceAll(" ", "+") + "&FORM=QBHP");
+	    searchURL = new URL("http://search.msn.com/results.aspx?q=" + queryString.replaceAll(" ", "+") + "&format=rss&FORM=ZZRE");
         } catch (MalformedURLException e) {
             log.error(e.toString());
             return null;

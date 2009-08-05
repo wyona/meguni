@@ -4,7 +4,7 @@ import org.wyona.meguni.parser.Parser;
 import org.wyona.meguni.util.Result;
 import org.wyona.meguni.util.ResultSet;
 
-import org.apache.log4j.Category;
+import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.InputStream;
@@ -18,7 +18,7 @@ import java.net.URLConnection;
  *
  */
 public class GoogleParser extends Parser {
-    private Category log = Category.getInstance(GoogleParser.class);
+    private Logger log = Logger.getLogger(GoogleParser.class);
 
     private String sampleFilename = "google.html";
 
@@ -26,14 +26,14 @@ public class GoogleParser extends Parser {
      *
      */
     public ResultSet parse(String queryString) throws Exception {
-        log.debug("Parse: " + queryString);
+        log.warn("DEBUG: Query: " + queryString);
 
         ResultSet resultSet = new ResultSet("Google", "http://www.google.com");
 
         URL searchURL;
         try {
-            //searchURL = new URL("http://www.google.com/search?q=" + queryString);
-            searchURL = new URL("http://www.google.com/search?hl=en&q=" + queryString + "&btnG=Google+Search");
+            //searchURL = new URL("http://www.google.com/search?q=" + queryString.replaceAll(" ", "+"));
+            searchURL = new URL("http://www.google.com/search?hl=en&q=" + queryString.replaceAll(" ", "+") + "&btnG=Google+Search");
         } catch (MalformedURLException e) {
             log.error(e.toString());
             return null;
