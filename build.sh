@@ -20,21 +20,16 @@ fi
 
 # ----- Set Environment Variables
 unset ANT_HOME
-ANT_HOME=$PWD/tools/apache-ant-1.6.5
+ANT_HOME=$PWD/tools/apache-ant
 #echo $ANT_HOME
+OUR_ANT="ant -lib tools/apache-ant_extras"
 
 unset CATALINA_HOME
 
 PATH=$PWD/tools/maven-2.0.4/bin:$ANT_HOME/bin:$PATH
 #echo $PATH
 
-# ----- Build Yanel
+# ----- Build Meguni
 #mvn --version
-ant -version
-# One might want to use the option "-f" for building resources, e.g. "./build.sh -f src/resources/xml/build.xml" instead having to build everything
-if [ "$1" = "-f" ];then
-  ant -f $2 $3
-  exit 0
-fi
-# Build everything by default
-ant -f build.xml "$@"
+$OUR_ANT -version
+$OUR_ANT -f build.xml $@
